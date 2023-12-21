@@ -43,7 +43,7 @@ fi
 readonly -A _SHELLBOT_=(
 [name]='ShellBot'
 [keywords]='Shell Script Telegram API'
-[description]='API não-oficial para criação de bots na plataforma Telegram.'
+[description]='Unofficial API for creating bots on the Telegram platform.'
 [version]='6.4.0'
 [language]='shellscript'
 [shell]=${SHELL}
@@ -60,15 +60,15 @@ while read _pkg_ _ver_; do
 	if command -v $_pkg_ &>/dev/null; then
 		if [[ $($_pkg_ --version 2>&1) =~ [0-9]+\.[0-9]+ ]]; then
 			if ! awk 'BEGIN { exit ARGV[1] < ARGV[2] }' $BASH_REMATCH $_ver_; then
-				printf "%s: erro: requer o pacote '%s %s' ou superior.\n" ${_SHELLBOT_[name]} $_pkg_ $_ver_ 1>&2
+				printf "%s: error: requires package '%s %s' or higher.\n" ${_SHELLBOT_[name]} $_pkg_ $_ver_ 1>&2
 				exit 1
 			fi
 		else
-			printf "%s: erro: '%s' não foi possível obter a versão.\n" ${_SHELLBOT_[name]} $_pkg_ 1>&2
+			printf "%s: error: '%s' could not get version.\n" ${_SHELLBOT_[name]} $_pkg_ 1>&2
 			exit 1
 		fi
 	else
-		printf "%s: erro: '%s' o pacote requerido está ausente.\n" ${_SHELLBOT_[name]} $_pkg_ 1>&2
+		printf "%s: erro: '%s' the required package is missing.\n" ${_SHELLBOT_[name]} $_pkg_ 1>&2
 		exit 1
 	fi
 done <<< "${_SHELLBOT_[packages]//,/$'\n'}"
@@ -95,7 +95,7 @@ readonly _BOT_SCRIPT_=${0##*/}				# Script
 readonly _CURL_OPT_='--silent --request'	# CURL (opções)
 
 # Erros
-readonly _ERR_TYPE_BOOL_='tipo incompatível: suporta somente "true" ou "false".'
+readonly _ERR_TYPE_BOOL_='incompatible type: supports only "true" or "false".'
 readonly _ERR_TYPE_INT_='tipo incompatível: suporta somente inteiro.'
 readonly _ERR_TYPE_FLOAT_='tipo incompatível: suporta somente float.'
 readonly _ERR_PARAM_REQUIRED_='opção requerida: verique se o(s) parâmetro(s) ou argumento(s) obrigatório(s) estão presente(s).'
