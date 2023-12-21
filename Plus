@@ -84,16 +84,16 @@ echo -e "\033[1;31m════════════════════�
 tput setaf 7
 tput setab 4
 tput bold
-printf '%40s%s%-12s\n' "BEM VINDO AO SSHPLUS MANAGER"
+printf '%40s%s%-12s\n' "WELCOME TO KumulSSH MANAGER"
 tput sgr0
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 echo ""
-echo -e "             \033[1;31mATENCAO! \033[1;33mESSE SCRIPT IRA !\033[0m"
+echo -e "             \033[1;31mATTENTION! \033[1;33mTHIS SCRIPT WILL !\033[0m"
 echo ""
-echo -e "\033[1;31m• \033[1;33mINSTALAR UM CONJUNTO DE SCRIPTS COMO FERRAMENTAS\033[0m"
-echo -e "\033[1;33m  PARA O GERENCIAMENTO DE REDE, SISTEMA E USUARIOS\033[0m"
+echo -e "\033[1;31m• \033[1;33mINSTALL A SET OF SCRIPTS AS TOOLS\033[0m"
+echo -e "\033[1;33m  FOR NETWORK, SYSTEM AND USER MANAGEMENT\033[0m"
 echo ""
-echo -e "\033[1;32m• \033[1;32mDICA! \033[1;33mULTILIZE O TEMA DARK EM SEU TERMINAL PARA\033[0m"
+echo -e "\033[1;32m• \033[1;32mTIP! \033[1;33mUSE THE DARK THEME ON YOUR TERMINAL TO\033[0m"
 echo -e "\033[1;33m  UMA MELHOR EXPERIÊNCIA E VISUALIZACAO DO MESMO!\033[0m"
 echo ""
 echo -e "\033[1;31m≠×≠×≠×≠×≠×≠×≠×[\033[1;33m • \033[1;32mEDIT:@kiritosshxd\033[1;33m •\033[1;31m ]≠×≠×≠×≠×≠×≠×≠×\033[0m"
