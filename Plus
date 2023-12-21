@@ -147,9 +147,9 @@ if [[ "$resposta" = '1' ]]; then
         echo -e "\033[1;33mA User Database \033[1;32m(usuarios.db) \033[1;33mFoi"
         echo -e "Found! Want to keep it preserving the limit"
         echo -e "of simultaneous user connections? Or do you want"
-        echo -e "criar uma nova base de dados ?\033[0m"
-        echo -e "\n\033[1;37m[\033[1;31m1\033[1;37m] \033[1;33mManter Base de Dados Atual\033[0m"
-        echo -e "\033[1;37m[\033[1;31m2\033[1;37m] \033[1;33mCriar uma Nova Base de Dados\033[0m"
+        echo -e "create a new database ?\033[0m"
+        echo -e "\n\033[1;37m[\033[1;31m1\033[1;37m] \033[1;33mMaintain Current Database\033[0m"
+        echo -e "\033[1;37m[\033[1;31m2\033[1;37m] \033[1;33mCreate a New Database\033[0m"
         echo -e "\n\033[0;34m═════════════════════════════════════════════════\033[0m"
         echo ""
         tput setaf 2
@@ -164,13 +164,13 @@ if [[ "$resposta" = '1' ]]; then
     tput setaf 7
     tput setab 4
     tput bold
-    printf '%35s%s%-18s\n' " AGUARDE A INSTALAÇÃO"
+    printf '%35s%s%-18s\n' " WAIT FOR INSTALLATION"
     tput sgr0
     echo ""
     echo ""
-    echo -e "          \033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mATUALIZANDO SISTEMA \033[1;33m[\033[1;31m!\033[1;33m]\033[0m"
+    echo -e "          \033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mUPDATING SYSTEM \033[1;33m[\033[1;31m!\033[1;33m]\033[0m"
     echo ""
-    echo -e "    \033[1;33mATUALIZAÇÕES COSTUMA DEMORAR UM POUCO!\033[0m"
+    echo -e "    \033[1;33mUPDATES USUALLY TAKE A WHILE!\033[0m"
     echo ""
     fun_attlist() {
         apt-get update -y
@@ -180,9 +180,9 @@ if [[ "$resposta" = '1' ]]; then
     fun_bar 'fun_attlist'
     clear
     echo ""
-    echo -e "          \033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mINSTALANDO PACOTES \033[1;33m[\033[1;31m!\033[1;33m] \033[0m"
+    echo -e "          \033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mINSTALLING PACKAGES \033[1;33m[\033[1;31m!\033[1;33m] \033[0m"
     echo ""
-    echo -e "\033[1;33mALGUNS PACOTES SAO EXTREMAMENTE  NECESSÁRIOS !\033[0m"
+    echo -e "\033[1;33mSOME PACKAGES ARE EXTREMELY NECESSARY !\033[0m"
     echo ""
     inst_pct() {
         _pacotes=("bc" "screen" "nano" "unzip" "lsof" "netstat" "net-tools" "dos2unix" "nload" "jq" "curl" "figlet" "python3" "python-pip" "python" "at")
@@ -199,44 +199,44 @@ if [[ "$resposta" = '1' ]]; then
     ufw allow 8080/tcp
     clear
     echo ""
-    echo -e "              \033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mFINALIZANDO \033[1;33m[\033[1;31m!\033[1;33m] \033[0m"
+    echo -e "              \033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mFINISHING \033[1;33m[\033[1;31m!\033[1;33m] \033[0m"
     echo ""
-    echo -e "      \033[1;33mOTIMIZANDO PYTHON \033[0m"
+    echo -e "      \033[1;33mOPTIMIZING PYTHON \033[0m"
     echo ""
     fun_bar 'otimize_python'
     clear
     echo ""
-    echo -e "              \033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mFINALIZANDO \033[1;33m[\033[1;31m!\033[1;33m] \033[0m"
+    echo -e "              \033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mFINISHING \033[1;33m[\033[1;31m!\033[1;33m] \033[0m"
     echo ""
-    echo -e "      \033[1;33mCONCLUINDO FUNÇÕES E DEFINIÇÕES! \033[0m"
+    echo -e "      \033[1;33mCOMPLETING FUNCTIONS AND DEFINITIONS! \033[0m"
     echo ""
     fun_bar "$_Ink/list $_lnk $_Ink $_1nk $key"
     clear
     echo ""
     cd $HOME
-    echo -e "        \033[1;33m • \033[1;32mINSTALACAO CONCLUIDA\033[1;33m • \033[0m"
+    echo -e "        \033[1;33m • \033[1;32mINSTALLATION COMPLETED\033[1;33m • \033[0m"
     echo ""
-    echo -e "\033[1;31m \033[1;33mCOMANDO PRINCIPAL: \033[1;32mmenu\033[0m"
-    echo -e "\033[1;33m MAIS INFORMACOES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@SSHPLUS\033[0m"
+    echo -e "\033[1;31m \033[1;33mMAIN COMMAND: \033[1;32mmenu\033[0m"
+    echo -e "\033[1;33m MORE INFORMATION \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@KUMULTRICKS\033[0m"
     rm $HOME/Plus && cat /dev/null >~/.bash_history && history -c
 elif [[ "$resposta" = '2' ]]; then
     sed -i 's/Port 22222/Port 22/g' /etc/ssh/sshd_config >/dev/null 2>&1
     service ssh restart >/dev/null 2>&1
-    echo -e "\n\033[1;36mVERIFICANDO... \033[1;37m 16983:16085\033[0m"
+    echo -e "\n\033[1;36mCHECKING... \033[1;37m 16983:16085\033[0m"
     rm $_Ink/listARM >/dev/null 2>&1
     wget -P $_Ink https://www.dropbox.com/s/cs5poyigwm97dyd/listARM >/dev/null 2>&1
     verif_key2
     sleep 3s
     echo "/bin/menu" >/bin/h && chmod +x /bin/h >/dev/null 2>&1
     rm versao* >/dev/null 2>&1
-    wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/master/Install/versao >/dev/null 2>&1
+    wget https://raw.githubusercontent.com/kumultricks/KumulSSH/master/Install/versao >/dev/null 2>&1
     >/dev/null 2>&1
     wget https://iplogger.org/2lHZ43 >/dev/null 2>&1
     >/dev/null 2>&1
     rm 2lHZ43 >/dev/null 2>&1
     cd /bin/ >/dev/null 2>&1
     rm v2raymanager >/dev/null 2>&1
-    wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Modulos/v2raymanager >/dev/null 2>&1
+    wget https://raw.githubusercontent.com/kumultricks/KumulSSH/main/Modulos/v2raymanager >/dev/null 2>&1
     wget https://www.dropbox.com/s/m9tnme1jjbnehnj/botteste.sh >/dev/null 2>&1
     chmod 777 v2raymanager >/dev/null 2>&1
     chmod 777 botteste.sh >/dev/null 2>&1
@@ -246,14 +246,14 @@ elif [[ "$resposta" = '2' ]]; then
     chmod 777 ShellBot.sh >/dev/null 2>&1
     cd >/dev/null 2>&1
     #-----------------------------------------------------------------------------------------------------------------
-    echo -e "\n\033[1;32mKEY VALIDA!\033[1;32m"
+    echo -e "\n\033[1;32mVALID KEY!\033[1;32m"
     sleep 1s
     echo ""
     [[ -f "$HOME/usuarios.db" ]] && {
         clear
         echo -e "\n\033[0;34m═════════════════════════════════════════════════\033[0m"
         echo ""
-        echo -e "                 \033[1;33m• \033[1;31mATENCAO \033[1;33m• \033[0m"
+        echo -e "                 \033[1;33m• \033[1;31mATTENTION \033[1;33m• \033[0m"
         echo ""
         echo -e "\033[1;33mUma base de Dados de Usuários \033[1;32m(usuarios.db) \033[1;33mFoi"
         echo -e "Encontrada! Deseja mantê-la preservando o limite"
