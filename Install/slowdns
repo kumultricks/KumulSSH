@@ -13,7 +13,7 @@ banner='
 |___/____\___/ \_/\_/ |___/|_|\_|___/'
 
 echo -e "${CORTITLE}=====================================${SCOLOR}" 
-echo -e "${CORTITLE}       SSHPLUS CLIENTE SLOWDNS       ${SCOLOR}"
+echo -e "${CORTITLE}       KUMULTRICKS SSH SLOWDNS       ${SCOLOR}"
 echo -e "${CORTITLE}=====================================${SCOLOR}" 
 echo -e "${RED}$banner${SCOLOR}"
 [[ ! -e dns ]] && {
@@ -23,32 +23,32 @@ echo -e "${RED}$banner${SCOLOR}"
     mv slowdns $PREFIX/bin/slowdns
     chmod +x $PREFIX/bin/slowdns
     [[ $(grep -c 'slowdns' $PREFIX/etc/profile) == '0' ]] && echo 'slowdns' >> $PREFIX/etc/profile
-    echo -e "\n${GREEN}BAIXANDO O SCRIPT POR FAVOR AGUARDE ! ${SCOLOR}"
-    curl -O https://github.com/kiritosshxd/SSHPLUS/raw/main/Slowdns/dns > /dev/null 2>&1
-    echo -e "\n${RED}[${YELLOW}!${RED}] ${YELLOW}SCRIPT BAIXADO ! DA PROXIMA VEZ\nEXECULTE APENAS O COMANDO ${RED}(${GREEN}slowdns${RED})\n${YELLOW}MESMO QUE VOCÊ ESTEJA OFFLINE !${SCOLOR}"
+    echo -e "\n${GREEN}DOWNLOADING THE SCRIPT PLEASE WAIT ! ${SCOLOR}"
+    curl -O https://github.com/kumultricks/KumulSSH/raw/main/Slowdns/dns > /dev/null 2>&1
+    echo -e "\n${RED}[${YELLOW}!${RED}] ${YELLOW}SCRIPT DOWNLOADED! NEXT TIME\nJUST EXECUTE THE COMMAND ${RED}(${GREEN}slowdns${RED})\n${YELLOW}EVEN IF YOU ARE OFFLINE !${SCOLOR}"
     chmod +x dns
 }
 [[ ! -e $HOME/credenciais ]] && {
     ns=$1
     [[ -z "$ns" ]] && {
-        echo -e "\n${RED}COMANDO IMCOMPLETO${SCOLOR}"
+        echo -e "\n${RED}INCOMPLETE COMMAND${SCOLOR}"
         exit 0
     }
     chave=$2
     [[ -z "$chave" ]] && {
-        echo -e "\n${RED}COMANDO IMCOMPLETO${SCOLOR}"
+        echo -e "\n${RED}INCOMPLETE COMMAND${SCOLOR}"
         exit 0
     }
     echo -e "$ns\n$chave" > $HOME/credenciais
 } || {
     perg=$(echo "${SCOLOR}[s/n]: ")
-    echo -e "\n${YELLOW}O SCRIPT JA ESTÁ CONFIGURADO COM UM\nSEEVIDOR E ESTA PRONTO PARA CONEXAO"
-    read -p "$(echo -e "${GREEN}QUER CONTINUAR COM O MESMO?${SCOLOR} [s/n]: ")" -e -i s opc
+    echo -e "\n${YELLOW}THE SCRIPT IS ALREADY CONFIGURED WITH A\nSERVER AND IS READY FOR CONNECTION"
+    read -p "$(echo -e "${GREEN}WANT TO CONTINUE WITH THE SAME?${SCOLOR} [s/n]: ")" -e -i s opc
     [[ "$opc" != @(s|sim|S|SIM) ]] && {
         rm $HOME/credenciais dns > /dev/null 2>&1
         rm $PREFIX/bin/slowdns > /dev/null 2>&1
         sed -i '/slowdns/d' $PREFIX/etc/profile > /dev/null 2>&1
-        echo -e "\n${RED}SCRIPT REMOVIDO !${SCOLOR}"
+        echo -e "\n${RED}REMOVE SCRIPT !${SCOLOR}"
         rm slowdns > /dev/null 2>&1
         exit 0
     } || {
@@ -61,8 +61,8 @@ dns=$3
 [[ -z "$dns" ]] && {
     dns='187.50.250.115'
 }
-echo -ne "\n${RED}[${YELLOW}!${RED}] ${YELLOW}PARA CONTINUAR CERTIFIQUE-SE DE\nESTÁ APENAS COM OS ${RED}(${YELLOW}DADOS MOVEIS${RED})\n${YELLOW}ATIVADO ${GREEN}ENTER ${YELLOW}PARA CONTINUAR.. ${SCOLOR}"; read
+echo -ne "\n${RED}[${YELLOW}!${RED}] ${YELLOW}TO CONTINUE MAKE SURE TO\nIT'S JUST WITH THE ${RED}(${YELLOW}MOBILE DATA${RED})\n${YELLOW}ACTIVATED ${GREEN}ENTER ${YELLOW}TO CONTINUE.. ${SCOLOR}"; read
 $HOME/dns -udp ${dns}:53 -pubkey ${chave} ${ns} 127.0.0.1:2222 > /dev/null 2>&1 &
-echo -e "\n${RED}[${GREEN}√${RED}]${SCOLOR} - ${GREEN}SLOWDNS INICIADO!${SCOLOR} - ${RED}[${GREEN}√${RED}]\n\n${RED}[${YELLOW}!${RED}] ${YELLOW}AGORA CONECTE-SE EM UM APP VPN\nOU CLICK EM ${GREEN}ENTER ${RED}PARA DESCONECTAR ${SCOLOR}"; read
+echo -e "\n${RED}[${GREEN}√${RED}]${SCOLOR} - ${GREEN}SLOWDNS STARTED!${SCOLOR} - ${RED}[${GREEN}√${RED}]\n\n${RED}[${YELLOW}!${RED}] ${YELLOW}NOW CONNECT TO A VPN APP\nOR CLICK ON ${GREEN}ENTER ${RED}TO DISCONNECT ${SCOLOR}"; read
 piddns=$(ps x| grep -w 'dns' | grep -v 'grep'| awk -F' ' {'print $1'})
 [[ ${piddns} != '' ]] && kill ${piddns} > /dev/null 2>&1
