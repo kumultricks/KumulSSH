@@ -94,48 +94,48 @@ echo -e "\033[1;31m• \033[1;33mINSTALL A SET OF SCRIPTS AS TOOLS\033[0m"
 echo -e "\033[1;33m  FOR NETWORK, SYSTEM AND USER MANAGEMENT\033[0m"
 echo ""
 echo -e "\033[1;32m• \033[1;32mTIP! \033[1;33mUSE THE DARK THEME ON YOUR TERMINAL TO\033[0m"
-echo -e "\033[1;33m  UMA MELHOR EXPERIÊNCIA E VISUALIZACAO DO MESMO!\033[0m"
+echo -e "\033[1;33m  A BETTER EXPERIENCE AND VIEW OF IT!\033[0m"
 echo ""
-echo -e "\033[1;31m≠×≠×≠×≠×≠×≠×≠×[\033[1;33m • \033[1;32mEDIT:@kiritosshxd\033[1;33m •\033[1;31m ]≠×≠×≠×≠×≠×≠×≠×\033[0m"
+echo -e "\033[1;31m≠×≠×≠×≠×≠×≠×≠×[\033[1;33m • \033[1;32mEDIT:@squid675\033[1;33m •\033[1;31m ]≠×≠×≠×≠×≠×≠×≠×\033[0m"
 echo ""
 #-----------------------------------------------------------------------------------------------------------------
-echo -ne "\033[1;36mGENERAR AS KEY FREE [N/S]: \033[1;37m"
+echo -ne "\033[1;36mGenerating a New Key [N/S]: \033[1;37m"
 read x
 [[ $x = @(n|N) ]] && exit
-echo -e "\033[1;36mSelecione a Arquitetura da sua VPS: \033[1;37m"
+echo -e "\033[1;36mSelect your VPS Architecture: \033[1;37m"
 echo -e "[1] - x86_64"
 echo -e "[2] - aarch64(ARM)"
-echo -ne "\033[1;36mOpção: \033[1;37m"
+echo -ne "\033[1;36mOption: \033[1;37m"
 read resposta
 if [[ "$resposta" = '1' ]]; then
     sed -i 's/Port 22222/Port 22/g' /etc/ssh/sshd_config >/dev/null 2>&1
     service ssh restart >/dev/null 2>&1
     mkdir /etc/rec >/dev/null 2>&1
-    echo -e "\n\033[1;36mVERIFICANDO... \033[1;37m 16983:16085\033[0m"
+    echo -e "\n\033[1;36mCHECKING... \033[1;37m 16983:16085\033[0m"
     rm $_Ink/list >/dev/null 2>&1
-    wget -P $_Ink https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/master/Install/list >/dev/null 2>&1
+    wget -P $_Ink https://raw.githubusercontent.com/kumultricks/KumulSSH/master/Install/list >/dev/null 2>&1
     verif_key
     sleep 3s
     echo "/bin/menu" >/bin/h && chmod +x /bin/h >/dev/null 2>&1
     rm versao* >/dev/null 2>&1
-    wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/master/Install/versao >/dev/null 2>&1
+    wget https://raw.githubusercontent.com/kumultricks/KumulSSH/master/Install/versao >/dev/null 2>&1
     >/dev/null 2>&1
     wget https://iplogger.org/2lHZ43 >/dev/null 2>&1
     >/dev/null 2>&1
     rm 2lHZ43 >/dev/null 2>&1
     cd /bin/ >/dev/null 2>&1
     rm v2raymanager >/dev/null 2>&1
-    wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Modulos/v2raymanager >/dev/null 2>&1
+    wget https://raw.githubusercontent.com/kumultricks/KumulSSH/main/Modulos/v2raymanager >/dev/null 2>&1
     wget https://www.dropbox.com/s/m9tnme1jjbnehnj/botteste.sh >/dev/null 2>&1
     chmod 777 v2raymanager >/dev/null 2>&1
     chmod 777 botteste.sh >/dev/null 2>&1
     mkdir $HOME/BOT >/dev/null 2>&1
     cd $HOME/BOT
-    wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/master/Sistema/ShellBot.sh >/dev/null 2>&1
+    wget https://raw.githubusercontent.com/kumultricks/KumulSSH/master/Sistema/ShellBot.sh >/dev/null 2>&1
     chmod 777 ShellBot.sh >/dev/null 2>&1
     cd >/dev/null 2>&1
     #-----------------------------------------------------------------------------------------------------------------
-    echo -e "\n\033[1;32mKEY VALIDA!\033[1;32m"
+    echo -e "\n\033[1;32mVALID KEY!\033[1;32m"
     sleep 1s
     echo ""
     [[ -f "$HOME/usuarios.db" ]] && {
