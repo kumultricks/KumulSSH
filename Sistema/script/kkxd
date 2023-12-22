@@ -9,7 +9,7 @@ ShellBot.username
 menu() {
     local msg
         msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>-------------REVENDA-------------</b>\n"
+        msg+="<b>-------------RESALE-------------</b>\n"
         msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
@@ -41,12 +41,12 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
     echo ${callback_query_from_id} >> lista
     # - ENVIA O SSH
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: $tempo Horas")" \
+    --text "$(echo -e "✅ <b>Successfully created</b> ✅\n\nUSER: <code>$usuario</code>\nPASSWORD: <code>$senha</code>\n\n⏳ Expires in: $time Hours")" \
     --parse_mode html
     return 0
   }
   ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VOCÊ NÃO TEM PERMISSÃO"
+        --text "YOU DO NOT HAVE PERMISSION"
       return 0
 }
 
@@ -58,7 +58,7 @@ criaruser2() {
     padrao="1"
     [[ "$limite" == "$_limTotal" ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VOCÊ NÃO TEM SALDO DISPONIVEL"
+        --text "YOU DO NOT HAVE ENOUGH BALANCE"
       return 0
     }
 
@@ -69,7 +69,7 @@ criaruser2() {
     dias='31'
     [[ "$(grep -wc $usuario /etc/passwd)" != '0' ]] && {
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "USUARIO GERADO JÁ FOI CADASTRADO, TENTE NOVAMENTE"
+        --text "GENERATED USER HAS ALREADY BEEN REGISTERED, TRY AGAIN"
       return 0
     }
     final=$(date "+%Y-%m-%d" -d "+$dias days")
@@ -83,12 +83,12 @@ criaruser2() {
     novolimite=$[_limTotal - padrao]
     sed -i "s/LIMITE_REVENDA: $_limTotal/LIMITE_REVENDA: $novolimite/g" $HOME/BOT/revenda/$user/$user >/dev/null 2>&1
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\nLIMITE: $limite\n\n⏳ Expira em: $gui")" \
+    --text "$(echo -e "✅ <b>Successfully created</b> ✅\n\nUSER: <code>$usuario</code>\nPASSWORD: <code>$senha</code>\nLIMIT: $limite\n\n⏳ Expires in: $gui")" \
     --parse_mode html
     return 0
   }
   ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VOCÊ NÃO TEM PERMISSÃO"
+        --text "YOU DO NOT HAVE PERMISSION"
       return 0
 }
 
@@ -100,7 +100,7 @@ criaruser() {
     padrao="1"
     [[ "$limite" == "$_limTotal" ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VOCÊ NÃO TEM SALDO DISPONIVEL"
+        --text "YOU DO NOT HAVE AVAILABLE BALANCE"
       return 0
     }
 
@@ -123,7 +123,7 @@ criaruser() {
     dias='31'
     [[ "$(grep -wc $usuario /etc/passwd)" != '0' ]] && {
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "USUARIO GERADO JÁ FOI CADASTRADO, TENTE NOVAMENTE"
+        --text "GENERATED USER HAS ALREADY BEEN REGISTERED, TRY AGAIN"
       return 0
     }
     final=$(date "+%Y-%m-%d" -d "+$dias days")
@@ -137,7 +137,7 @@ criaruser() {
     novolimite=$[_limTotal - padrao]
     sed -i "s/LIMITE_REVENDA: $_limTotal/LIMITE_REVENDA: $novolimite/g" $HOME/BOT/revenda/$user/$user >/dev/null 2>&1
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\nLIMITE: $limite\n\n⏳ Expira em: $gui")" \
+    --text "$(echo -e "✅ <b>Successfully created</b> ✅\n\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\nLIMITE: $limite\n\n⏳ Expira em: $gui")" \
     --parse_mode html
     return 0
   }
