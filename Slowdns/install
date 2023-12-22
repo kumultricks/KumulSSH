@@ -10,7 +10,7 @@ ${comando[1]} -y > /dev/null 2>&1
 touch $HOME/fim
  ) > /dev/null 2>&1 &
  tput civis
-echo -ne "  \033[1;33mAGUARDE \033[1;37m- \033[1;33m["
+echo -ne "  \033[1;33mWAIT \033[1;37m- \033[1;33m["
 while true; do
    for((i=0; i<18; i++)); do
    echo -ne "\033[1;31m#"
@@ -21,46 +21,46 @@ while true; do
    sleep 1s
    tput cuu1
    tput dl1
-   echo -ne "  \033[1;33mAGUARDE \033[1;37m- \033[1;33m["
+   echo -ne "  \033[1;33mWAIT \033[1;37m- \033[1;33m["
 done
 echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
 tput cnorm
 }
 clear
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "INSTALADOR SLOWDNS MANAGER" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "INSTALL SLOW DNS MANAGER" ; tput sgr0
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 echo -e ""
-echo -e "      Esse script irá fazer a instalação do"
-echo -e "   gerenciador para o modo de conexão SlowDNS."
+echo -e "      This script will install the"
+echo -e "   manager for SlowDNS connection mode."
 echo -e ""
-echo -e "         \033[1;33mInstalador feito por edição \033[1;37m"
+echo -e "         \033[1;33mInstaller made by SQUID675 \033[1;37m"
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 echo ""
-echo -e "BAIXANDO DEPENDENCIAS..."
+echo -e "DOWNLOADING DEPENDENCIES..."
 echo ""
 fun_att () {
 apt install ncurses-utils -y
 mkdir /etc/slowdns
 cd /etc/slowdns
-wget https://github.com/kiritosshxd/SSHPLUS/raw/main/Slowdns/dns-server; chmod +x dns-server
-wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Slowdns/remove-slow; chmod +x remove-slow
-wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Slowdns/slowdns-info; chmod +x slowdns-info
-wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Slowdns/slowdns-drop; chmod +x slowdns-drop
-wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Slowdns/slowdns-ssh; chmod +x slowdns-ssh
-wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Slowdns/slowdns-ssl; chmod +x slowdns-ssl
-wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Slowdns/slowdns-socks; chmod +x slowdns-socks
-wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Slowdns/slowdns; chmod +x slowdns; cp slowdns /bin/
-wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Slowdns/stopdns; chmod +x stopdns
+wget https://github.com/kumultricks/KumulSSH/raw/main/Slowdns/dns-server; chmod +x dns-server
+wget https://raw.githubusercontent.com/kumultricks/KumulSSH/main/Slowdns/remove-slow; chmod +x remove-slow
+wget https://raw.githubusercontent.com/kumultricks/KumulSSH/main/Slowdns/slowdns-info; chmod +x slowdns-info
+wget https://raw.githubusercontent.com/kumultricks/KumulSSH/main/Slowdns/slowdns-drop; chmod +x slowdns-drop
+wget https://raw.githubusercontent.com/kumultricks/KumulSSH/main/Slowdns/slowdns-ssh; chmod +x slowdns-ssh
+wget https://raw.githubusercontent.com/kumultricks/KumulSSH/main/Slowdns/slowdns-ssl; chmod +x slowdns-ssl
+wget https://raw.githubusercontent.com/kumultricks/KumulSSH/main/Slowdns/slowdns-socks; chmod +x slowdns-socks
+wget https://raw.githubusercontent.com/kumultricks/KumulSSH/main/Slowdns/slowdns; chmod +x slowdns; cp slowdns /bin/
+wget https://raw.githubusercontent.com/kumultricks/KumulSSH/main/Slowdns/stopdns; chmod +x stopdns
 }
 fun_bar 'fun_att'
-echo -e "CONFIGURANDO FIREWALL..."
+echo -e "CONFIGURING FIREWALL..."
 echo ""
 fun_ports () {
 apt install firewalld -y && sudo firewall-cmd --zone=public --permanent --add-port=80/tcp && sudo firewall-cmd --zone=public --permanent --add-port=8080/tcp && sudo firewall-cmd --zone=public --permanent --add-port=443/tcp && sudo firewall-cmd && sudo firewall-cmd --zone=public --permanent --add-port=53/udp && sudo firewall-cmd --zone=public --permanent --add-port=5300/udp && sudo firewall-cmd && sudo firewall-cmd --zone=public --permanent --add-port=2222/tcp && sudo firewall-cmd --reload
 }
 fun_bar 'fun_ports'
-echo -e "DEFININDO DNS DO CLOUDFLARE..."
+echo -e "SETTING CLOUDFLARE DNS..."
 echo ""
 fun_dnscf () {
 sudo systemctl disable systemd-resolved.service && sudo systemctl stop systemd-resolved.service && sudo mv /etc/resolv.conf /etc/resolv.conf.bkp && echo "nameserver 1.1.1.1" > /etc/resolv.conf
@@ -70,12 +70,12 @@ sleep 2
 fun_bar 'fun_dnscf'
 clear
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "INSTALADOR SLOWDNS MANAGER" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "INSTALL SLOWDNS MANAGER" ; tput sgr0
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 echo ""
-echo -e "          \033[1;33mINSTALAÇÃO CONCLUIDA!\033[0m          "
+echo -e "          \033[1;33mINSTALLATION COMPLETED!\033[0m          "
 echo ""
-echo -e "Para abrir o menu, use o comando: \033[1;33mslowdns\033[0m"
+echo -e "To open the menu, use the command: \033[1;33mslowdns\033[0m"
 cd
 rm install
 slowdns
