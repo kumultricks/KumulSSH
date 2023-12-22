@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-#--------@kiritosshxd-----------#
+#--------@kumultricks-----------#
 source ShellBot2.sh
 ShellBot.init --token "2104982015:AAF3cchdGHRKvKCjG_z_Xd9c7Ip9lof6KCE" --monitor --flush
 ShellBot.username
@@ -9,7 +9,7 @@ ShellBot.username
 menu() {
     local msg
         msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>-------------REVENDA-------------</b>\n"
+        msg+="<b>-------------RESALE-------------</b>\n"
         msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
@@ -41,12 +41,12 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
     echo ${callback_query_from_id} >> lista
     # - ENVIA O SSH
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: $tempo Horas")" \
+    --text "$(echo -e "✅ <b>Successfully created</b> ✅\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: $tempo Horas")" \
     --parse_mode html
     return 0
   }
   ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VOCÊ NÃO TEM PERMISSÃO"
+        --text "YOU DO NOT HAVE PERMISSION"
       return 0
 }
 
@@ -58,7 +58,7 @@ criaruser() {
     padrao="1"
     [[ "$limite" == "$_limTotal" ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VOCÊ NÃO TEM SALDO DISPONIVEL"
+        --text "YOU DO NOT HAVE ENOUGH BALANCE"
       return 0
     }
 
@@ -69,7 +69,7 @@ criaruser() {
     dias='31'
     [[ "$(grep -wc $usuario /etc/passwd)" != '0' ]] && {
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "USUARIO GERADO JÁ FOI CADASTRADO, TENTE NOVAMENTE"
+        --text "GENERATED USER HAS ALREADY BEEN REGISTERED, TRY AGAIN"
       return 0
     }
     final=$(date "+%Y-%m-%d" -d "+$dias days")
@@ -83,19 +83,19 @@ criaruser() {
     novolimite=$[_limTotal - padrao]
     sed -i "s/LIMITE_REVENDA: $_limTotal/LIMITE_REVENDA: $novolimite/g" $HOME/BOT/revenda/$user/$user >/dev/null 2>&1
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: 31 Dias")" \
+    --text "$(echo -e "✅ <b>Successfully created</b> ✅\n\nIP: $(cat /etc/IP)\nUSER: <code>$usuario</code>\nPASSWORD: <code>$senha</code>\n\n⏳ Expires in: 31 Days")" \
     --parse_mode html
     return 0
   }
   ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VOCÊ NÃO TEM PERMISSÃO"
+        --text "YOU DO NOT HAVE PERMISSION"
       return 0
 }
 
 #enviar app
 enviarapp() {
     ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-        --text "♻️ ENVIANDO APLICATIVO, AGUARDE..."
+        --text "♻️ SENDING APPLICATION, PLEASE WAIT..."
     ShellBot.sendDocument --chat_id ${callback_query_message_chat_id} \
         --document "@/root/CONECT4G.apk" \
     return 0
@@ -111,9 +111,9 @@ infouser () {
 
 unset botao1
 botao1=''
-ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '♻️GERAR TESTE♻️' --callback_data 'gerarssh'
-ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text '♻️GERA SSH MENSAL♻️' --callback_data 'usercriar'
-ShellBot.InlineKeyboardButton --button 'botao1' --line 3 --text '🔰BAIXAR APLICATIVO🔰' --callback_data 'appenviar'
+ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '♻️GENERATE TEST♻️' --callback_data 'gerarssh'
+ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text '♻️GENERATE MONTHLY SSH♻️' --callback_data 'usercriar'
+ShellBot.InlineKeyboardButton --button 'botao1' --line 3 --text '🔰DOWNLOAD APP🔰' --callback_data 'appenviar'
 ShellBot.regHandleFunction --function criarteste --callback_data gerarssh
 ShellBot.regHandleFunction --function enviarapp --callback_data appenviar
 ShellBot.regHandleFunction --function criaruser --callback_data usercriar
