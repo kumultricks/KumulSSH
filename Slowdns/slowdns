@@ -11,51 +11,51 @@ echo -e "\033[0;36m#  ''|||. ||.|  '|.||  ||  | ||    ||| '|. |  ''|||.#\033[m"
 echo -e "\033[0;36m#.     '||||||   || ||| |||  ||    |||   |||.     '|#\033[m"
 echo -e "\033[0;36m#|'....|'.||.'|..|'  |   |  .||...|'.|.   '||'....|'#\033[m"
 echo -e "\033[0;36m#---------------------------------------------------#\033[m"
-echo -e "\033[0;36m#\033[m \033[0;31mSlowDNS | Desfrute e passe tempo\033[m \033[0;36m#\033[m"
+echo -e "\033[0;36m#\033[m \033[0;31mSlowDNS | Enjoy\033[m \033[0;36m#\033[m"
 echo -e "\033[0;36m#===================================================#\033[m"
     echo ""
-    echo -e "\033[0;36m[01]\033[m | Instalar SlowDNS SSH"
-    echo -e "\033[0;36m[02]\033[m | Instalar SlowDNS SSL"
-    echo -e "\033[0;36m[03]\033[m | Instalar SlowDNS DROP"
-    echo -e "\033[0;36m[04]\033[m | Instalar SlowDNS SOCKS"
-    echo -e "\033[0;36m[05]\033[m | Ver informações"
-    echo -e "\033[0;36m[06]\033[m | Iniciar SlowDNS"
-    echo -e "\033[0;36m[07]\033[m | Reiniciar SlowDNS"
-    echo -e "\033[0;36m[08]\033[m | Parar SlowDNS"
-    echo -e "\033[0;36m[09]\033[m | Remover SlowDNS"
-    echo -e "\033[0;36m[10]\033[m | Atualizar/Reinstalar"
-    echo -e "\033[0;36m[11]\033[m | Remover Script"
-    echo -e "\033[0;36m[00]\033[m | SAIR"
+    echo -e "\033[0;36m[01]\033[m | Install SlowDNS SSH"
+    echo -e "\033[0;36m[02]\033[m | Install SlowDNS SSL"
+    echo -e "\033[0;36m[03]\033[m | Install SlowDNS DROP"
+    echo -e "\033[0;36m[04]\033[m | Install SlowDNS SOCKS"
+    echo -e "\033[0;36m[05]\033[m | View information"
+    echo -e "\033[0;36m[06]\033[m | Start SlowDNS"
+    echo -e "\033[0;36m[07]\033[m | Restart SlowDNS"
+    echo -e "\033[0;36m[08]\033[m | Stop SlowDNS"
+    echo -e "\033[0;36m[09]\033[m | Remove SlowDNS"
+    echo -e "\033[0;36m[10]\033[m | Update/Reinstall"
+    echo -e "\033[0;36m[11]\033[m | Remove Script"
+    echo -e "\033[0;36m[00]\033[m | EXIT"
     echo ""
-    echo -ne "\033[0;36mO que deseja fazer?:\0033[m " && read opcao
+    echo -ne "\033[0;36mWhat do you want to do?:\0033[m " && read opcao
     case $opcao in
-    1) Opcao1 ;;
-    2) Opcao2 ;;
-    3) Opcao3 ;;
-    4) Opcao4 ;;
-    5) Opcao5 ;;
-    6) Opcao6 ;;
-    7) Opcao7 ;;
-    8) Opcao8 ;;
-    9) Opcao9 ;;
-    10) Opcao10 ;;
-    11) Opcao11 ;;
-    0) Sair ;;
-    *) "Calma Barboleta" ; echo ; slowdns ;;
+    1) Option1 ;;
+    2) Option2 ;;
+    3) Option3 ;;
+    4) Option4 ;;
+    5) Option5 ;;
+    6) Option6 ;;
+    7) Option7 ;;
+    8) Option8 ;;
+    9) Option9 ;;
+    10) Option10 ;;
+    11) Option11 ;;
+    0) Exit ;;
+    *) "Calm Butterfly" ; echo ; slowdns ;;
     esac
     }
 
-Opcao1 () {
+Option1 () {
     clear
     bash /etc/slowdns/slowdns-ssh
 }
 
-Opcao2 () {
+Option2 () {
     clear
     bash /etc/slowdns/slowdns-ssl
 }
 
-Opcao3 () {
+Option3 () {
     clear
     bash /etc/slowdns/slowdns-drop
 }
@@ -66,17 +66,17 @@ Opcao4 () {
 }
 
 
-Opcao5 () {
+Option5 () {
     clear
     bash /etc/slowdns/slowdns-info
 }
 
-Opcao6 () {
+Option6 () {
     clear
     bash /etc/slowdns/startdns
 }
 
-Opcao7 () {
+Option7 () {
     clear
     bash /etc/slowdns/restartdns
 }
@@ -86,23 +86,23 @@ Opcao8 () {
     bash /etc/slowdns/stopdns
 }
 
-Opcao9 () {
+Option9 () {
      clear
     bash /etc/slowdns/stopdns
     bash /etc/slowdns/remove-slow
 }
 
-Opcao10 () {
+Option10 () {
     clear
-    wget https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Slowdns/update
+    wget https://raw.githubusercontent.com/kumultricks/KumulSSH/main/Slowdns/update
     chmod +x update
     bash update
 }
 
-Opcao11 () {
+Option11 () {
      clear
     bash /etc/slowdns/remove-slow
-    echo -e "\033[0;31mSlowDNS Manager Desinstalado!\033[0m"
+    echo -e "\033[0;31mSlowDNS Manager Uninstalled!\033[0m"
     sleep 2
     rm /bin/slowdns
 }
